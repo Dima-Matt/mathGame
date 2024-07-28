@@ -1,0 +1,138 @@
+@import './mixin/adaptive';
+@import './components/main.game';
+@import './components/footer';
+@import './constants/colors';
+
+
+html {
+    font-family: "Nunito Sans", sans-serif;
+    height: 100%;
+    font-size: 10px;
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-weight: 300;
+    }
+}
+
+.wrapper {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.game-field {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+}
+
+.main {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    &__screen {
+        width: 65%;
+        position: relative;
+        &-cover {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.7;
+        }
+        &-flood {
+            width: 100%;
+            height: 60px;
+            background-color: rgba(15, 15, 242, 0.603);
+            position: absolute;
+            left: 0;
+            bottom: 0;
+        }
+    }   
+}
+
+.footer {
+  width: 100%;
+  height: 10%;
+  background: linear-gradient(90deg, #f9b1c6, #f7c4cf, #f9b9dd);
+}
+
+.hide {
+    display: none;
+}
+
+.drop {
+    // float: left;
+    width: 80px;
+    height: 80px;
+    margin: 0 50px 20px 0;
+    background: rgb(49, 171, 220);
+    border-radius: 0 100% 100% 100%;
+    transform: rotateZ(45deg);
+    position: relative;
+    
+}
+.drop-container {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5rem;
+    transform: rotateZ(-45deg);
+    position: absolute;
+    left: 45%;
+    top: 10%;
+}
+    
+
+
+
+@media screen and (max-width: 530px) {
+  
+
+    .main {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        &__screen {
+            width: 100%;
+            height: 100%;
+        }
+        &__game {
+            display: flex;
+            width: 100%;
+            &-score {
+                position: absolute;
+                left: 0;
+                top: 0;
+               // width: 170px;
+                font-size: 1rem;
+                background: none;
+                box-shadow: none;
+                font-size: 2rem;
+                &-icon {
+                    display: none;
+                }
+                .score-result {
+                    font-size: 2rem;
+                }
+            }
+            &-calc {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                
+            }
+            &-level {
+                position: absolute;
+                top: 0;
+                right: 0;
+                margin-bottom: 0;
+                font-size: 2rem;
+                .level-result {
+                    font-size: 2rem;
+                }
+            }
+        }
+    }
+    }

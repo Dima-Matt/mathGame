@@ -1,0 +1,18 @@
+@import '../constants/breakpoints';
+@mixin respond-to($media) {
+    @if ($media == 'large') {
+        @media screen and (max-width: $large) {
+            @content;
+        }           
+    } @else if ($media == 'middle') {
+        @media screen and (max-width: $middle) {
+            @content;
+        }           
+    } @else if ($media == 'mobile') {
+        @media screen and (max-width: $mobile) {
+            @content;
+        }           
+    }
+}
+
+

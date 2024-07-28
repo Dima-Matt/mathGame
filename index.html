@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.min.css">   
+    <title>Calculator Game</title>
+</head>
+<body>
+<div class="wrapper">
+
+    <div class="game-field">
+        <div class="main">
+            <div class="main__screen">
+                <img class="main__screen-cover" src="/src/accets/pic/water.jpg" alt="">
+                <div class="main__screen-flood hide"></div>
+            </div>
+            <div class="main__game">
+                <div class="main__game-score">
+                    <div class="main__game-score-icon"></div>
+                    <p class="main__game-score-text">Score: <span class="score-result">1111</span></p>
+                </div>
+                <div class="main__game-calc">
+                    <div class="main__game-calc-display"></div>
+                    <div class="main__game-calc-buttons">
+                        <button type="button" class="main__game-calc-buttons-btn">1</button>
+                        <button type="button" class="main__game-calc-buttons-btn">2</button>
+                        <button type="button" class="main__game-calc-buttons-btn">3</button>
+                        <button type="button" class="main__game-calc-buttons-btn">4</button>
+                        <button type="button" class="main__game-calc-buttons-btn">5</button>
+                        <button type="button" class="main__game-calc-buttons-btn">6</button>
+                        <button type="button" class="main__game-calc-buttons-btn">7</button>
+                        <button type="button" class="main__game-calc-buttons-btn">8</button>
+                        <button type="button" class="main__game-calc-buttons-btn">9</button>
+                        <button type="button" class="main__game-calc-buttons-btn">0</button>
+                        <button type="button" class="main__game-calc-buttons-btn btn-clear">Clear</button>
+                        <button type="button" class="main__game-calc-buttons-btn btn-enter">Enter</button>
+                        <button type="button" class="main__game-calc-buttons-btn btn-delete">Delete</button>
+                    </div>
+                </div>
+                <div class="main__game-level">Level:<span class="level-result">3</span></div>
+            </div>
+        </div>
+        <div class="footer"></div>   
+    </div>
+
+</div>
+
+    <div class="drop hide">
+      <div class="drop-container">
+       <span class="drop__num-1">x</span>
+       <span class="drop__sign">+</span>
+       <span class="drop__num-2">y</span>
+      </div>
+    </div>
+  
+
+
+
+    <script src="./src/index.js"></script>
+</body>
+</html>
