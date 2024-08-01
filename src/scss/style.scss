@@ -63,6 +63,10 @@ html {
     display: none;
 }
 
+.show {
+    display: block;
+}
+
 .drop {
     // float: left;
     width: 80px;
@@ -71,7 +75,10 @@ html {
     background: rgb(49, 171, 220);
     border-radius: 0 100% 100% 100%;
     transform: rotateZ(45deg);
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.8;
     
 }
 .drop-container {
