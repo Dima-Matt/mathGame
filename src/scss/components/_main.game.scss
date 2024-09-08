@@ -35,6 +35,8 @@
         height: auto;
         border: 10px groove pink;
         align-self: center;
+        position: relative;
+        bottom: 30%;
         @include respond-to ('middle') {
            width: 180px;
         }
