@@ -1,6 +1,5 @@
 @import './mixin/adaptive';
 @import './components/main.game';
-@import './components/footer';
 @import './constants/colors';
 
 
@@ -98,9 +97,9 @@ html {
     bottom: 0;
     left: 0;
     overflow: hidden;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(8, 13, 9, 0.716);
     display: flex;
-    display: block;
+    //display: block;
     justify-content: center;
     align-items:center;
     &__content {
@@ -112,54 +111,33 @@ html {
         max-width: 500px;
         height: 50%;
         max-height: 300px;
-        background: linear-gradient(114deg, #29323c -5%, #485563 200%);
+        background: linear-gradient(114deg, #ee5e87 -5%, #1374dd 200%);
         border-radius: 10px;
         padding: 2rem;
-        box-shadow: 4px -4px 4px aqua;
+       
     }
     &__buttons {
         display: flex;
         align-items: center;
         justify-content: space-around;
         width: 100%;
+        padding: 10px;
+    }
+    &__btn {
+        padding: 10px;
+        border-radius: 5px;
+        background: transparent;
+        border-color: white;
+        font-size: 2rem;;
+        color: white;
     }
 
 }
 
-
-.modal {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    overflow: hidden;
-    background-color: rgba(255, 255, 255, 0.1);
-    display: flex;
-    display: block;
-    justify-content: center;
-    align-items:center;
-    &__content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-around;
-        width: 50%;
-        max-width: 500px;
-        height: 50%;
-        max-height: 300px;
-        background: linear-gradient(114deg, #29323c -5%, #485563 200%);
-        border-radius: 10px;
-        padding: 2rem;
-        box-shadow: 4px -4px 4px aqua;
-    }
-    &__buttons {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        width: 100%;
-    }
-
+.hello, .score, #score-result {
+    font-size: 2.5rem;
+    color: white;
+    font-weight: 700;
 }
 
 
@@ -171,9 +149,9 @@ html {
     bottom: 0;
     left: 0;
     overflow: hidden;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(8, 13, 9, 0.716);
     display: flex;
-    display: none;
+    display: none;   
     justify-content: center;
     align-items:center;
     &__content {
@@ -185,10 +163,10 @@ html {
         max-width: 500px;
         height: 50%;
         max-height: 300px;
-        background: linear-gradient(114deg, #29323c -5%, #485563 200%);
+        background: linear-gradient(114deg, #ee5e87 -5%, #1374dd 200%);
         border-radius: 10px;
         padding: 2rem;
-        box-shadow: 4px -4px 4px aqua;
+       
     }
     &__buttons {
         display: flex;
@@ -233,6 +211,8 @@ html {
                 display: flex;
                 flex-direction: column;
                 width: 100%;
+                position: relative;
+                bottom: 0;
                 
             }
             &-level {
@@ -247,4 +227,22 @@ html {
             }
         }
     }
+
+    .hello, .score, #score-result {
+        font-size: 2rem;
+        text-align: center;
+        color: white;
+        font-weight: 700;
+    }
+
+    .modal, .modal-finish {
+        
+        &__buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+    }
+
+
     }

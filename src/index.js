@@ -214,7 +214,7 @@ function upTide() {
 
   tideUpCount++;
   if (tideUpCount === 3) {
-    modalFinish.style.display = "block";
+    modalFinish.style.display = "flex";
     gameFinish = true;
     gameResult.innerHTML = gameScore.innerHTML;
    

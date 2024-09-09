@@ -43,6 +43,8 @@
         &-display {
             width: 100%;
             height: 50px;
+            font-size: 3rem;
+            padding-left: 10px;
             background-color: #faeff1;
             box-shadow: inset 0 0 5px 1px;
             @include respond-to ('middle') {
