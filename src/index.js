@@ -1,4 +1,3 @@
-
 let animationTimer;
 let tideUpCount = 0;
 let gameFinish = false;
@@ -16,31 +15,27 @@ const cancelGame = document.getElementById("cancel");
 const finishGame = document.getElementById("finish");
 const restartGame = document.getElementById("restart");
 const modalFinish = document.querySelector(".modal-finish");
-const gameResult = document.getElementById('score-final');
+const gameResult = document.getElementById("score-final");
 const calcScreen = document.querySelector(".main__game-calc-display");
-const rightAnswerSound = document.querySelector('.right');
-const wrongAnswerSound = document.querySelector('.wrong');
-
+const rightAnswerSound = document.querySelector(".right");
+const wrongAnswerSound = document.querySelector(".wrong");
 
 ///// Полноэкранный режим
-const fullScreenIcon = document.querySelector('.full-screen');
-const outOfFullScreenIcon = document.querySelector('.no-full-screen');
+const fullScreenIcon = document.querySelector(".full-screen");
+const outOfFullScreenIcon = document.querySelector(".no-full-screen");
 // Вход
-fullScreenIcon.addEventListener('click', function() { 
-  document.documentElement.requestFullscreen()
-})
+fullScreenIcon.addEventListener("click", function () {
+  document.documentElement.requestFullscreen();
+});
 // Выход
-outOfFullScreenIcon.addEventListener('click', function () {
+outOfFullScreenIcon.addEventListener("click", function () {
   document.exitFullscreen();
-})
-  
-
-
+});
 
 startModalBtn.addEventListener("click", resetGame);
 cancelGame.addEventListener("click", cancel);
 finishGame.addEventListener("click", cancel);
-restartGame.addEventListener('click', resetGame)
+restartGame.addEventListener("click", resetGame);
 
 calculatorValue();
 
@@ -51,17 +46,17 @@ function resetGame() {
   gameFinish = false;
   dropValue = null;
   timeOut = 10000;
-  modalFinish.style.display = 'none';
+  modalFinish.style.display = "none";
   modalStart.style.display = "none";
-  screenFloodDiv.style.height = '0px';
+  screenFloodDiv.style.height = "0px";
   calcScreen.innerHTML = "";
-  gameScore.innerHTML = 0;
+  gameScore.innerHTML = gameScore.innerHTML;
+
   createRandomDrope();
 }
 
 ///// Создание капли
 function createRandomDrope() {
-  
   const drop = document.createElement("div");
   const inDrop = document.createElement("div");
   const containerNum1 = document.createElement("span");
@@ -75,9 +70,9 @@ function createRandomDrope() {
   containerSign.classList.add("drop__sign");
 
   //// Диапазон появление капли по горизонтали
-  drop.style.left = getRandomInt(1, screen.offsetWidth - drop.offsetWidth) + "px";
+  drop.style.left =
+    getRandomInt(1, screen.offsetWidth - drop.offsetWidth) + "px";
   drop.append(inDrop);
-
 
   //// Генерация случайных чисел
 
@@ -86,18 +81,15 @@ function createRandomDrope() {
 
   if (dropCount > 9) {
     level = 1;
- } else {
-   level = 0;
- }
+  } else {
+    level = 0;
+  }
 
   let maxValue = 9 + level * 10;
   let minValue = 1 + level * 10;
   let num1 = getRandomInt(minValue, maxValue);
   let sign = getRandomSign();
   let num2;
-  
-
-  
 
   if (sign === "/" && num1 % num2 !== 0) {
     num2 = getRandomInt(1, maxValue);
@@ -112,14 +104,13 @@ function createRandomDrope() {
     num2 = getRandomInt(minValue, maxValue);
   }
 
-  // Сохранение в HTML рандомных значений
-  const dropNum1Value = document.getElementById("num-1");
-  dropNum1Value.innerHTML = num1;
-  const dropSignValue = document.getElementById("sign");
-  dropSignValue.innerHTML = sign;
-  const dropNum2Value = document.getElementById("num-2");
-  dropNum2Value.innerHTML = num2;
-
+  // // Сохранение в HTML рандомных значений
+  // const dropNum1Value = document.getElementById("num-1");
+  // dropNum1Value.innerHTML = num1;
+  // const dropSignValue = document.getElementById("sign");
+  // dropSignValue.innerHTML = sign;
+  // const dropNum2Value = document.getElementById("num-2");
+  // dropNum2Value.innerHTML = num2;
 
   // Генерация знаков
   function dropResult(num1, num2, operator) {
@@ -139,11 +130,7 @@ function createRandomDrope() {
   }
 
   /// "Вычисление" капли
-  dropValue = dropResult(
-    dropNum1Value.innerHTML,
-    dropNum2Value.innerHTML,
-    dropSignValue.innerHTML
-  );
+  dropValue = dropResult(num1, num2, sign);
 
   containerNum1.append(num1);
   inDrop.append(containerNum1);
@@ -154,7 +141,6 @@ function createRandomDrope() {
 
   screen.append(drop);
 
-
   ///// Падение капли
   let start = Date.now();
   animationTimer = setInterval(function () {
@@ -162,14 +148,11 @@ function createRandomDrope() {
     let timePassed = Date.now() - start;
     //// Расстояние падения
     let dropDistance =
-      screen.offsetHeight -
-      screenFloodDiv.offsetHeight -
-      drop.offsetHeight;
+      screen.offsetHeight - screenFloodDiv.offsetHeight - drop.offsetHeight;
 
     ///// Если не успели ввести ответ за время падения
     if (timePassed >= timeOut) {
-      const result =
-        parseInt(gameScore.innerHTML) - parseInt(dropValue);
+      const result = parseInt(gameScore.innerHTML) - parseInt(dropValue);
       gameScore.innerHTML = result;
       dropDelete();
       upTide();
@@ -199,7 +182,6 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled);
 }
 
-
 //// Рандомный знак
 function getRandomSign() {
   const arrSigns = ["+", "-", "*", "/"];
@@ -207,26 +189,25 @@ function getRandomSign() {
   return arrSigns[i];
 }
 
-
 //// Калькулятор и ввод ответа
 function calculatorValue() {
   const buttons = document.querySelectorAll(".btn");
   const enter = document.querySelector(".btn-enter");
   const clear = document.querySelector(".btn-clear");
   const del = document.querySelector(".btn-delete");
-  
+
   const symbolKeyCode = {
-    '48': '0',
-    '49': '1',
-    '50': '2',
-    '51': '3',
-    '52': '4',
-    '53': '5',
-    '54': '6',
-    '55': '7',
-    '56': '8',
-    '57': '9',
-  }
+    48: "0",
+    49: "1",
+    50: "2",
+    51: "3",
+    52: "4",
+    53: "5",
+    54: "6",
+    55: "7",
+    56: "8",
+    57: "9",
+  };
 
   const enterKeyCode = 13;
   const backspaceKeyCode = 8;
@@ -249,23 +230,17 @@ function calculatorValue() {
     introduseSolution();
   });
 
-
   //// Ввод ответа с клавиатуры
-  window.addEventListener('keypress', function (event) {
+  window.addEventListener("keypress", function (event) {
     if (event.keyCode in symbolKeyCode) {
-      calcScreen.innerHTML += parseInt(event.key);      
-    }
-
-    else if (event.keyCode === backspaceKeyCode) {
+      calcScreen.innerHTML += parseInt(event.key);
+    } else if (event.keyCode === backspaceKeyCode) {
       calcScreen.innerHTML = "";
-    }
-
-    else if (event.keyCode === enterKeyCode) {
+    } else if (event.keyCode === enterKeyCode) {
       introduseSolution();
     }
   });
 }
-
 
 //// Удаление капли
 function dropDelete() {
@@ -289,18 +264,16 @@ function upTide() {
     "px";
   timeOut = timeOut * 0.8;
 
-
   ///// Счётчик ошибок
   tideUpCount++;
   if (tideUpCount === 3) {
     modalFinish.style.display = "flex";
     gameFinish = true;
     gameResult.innerHTML = gameScore.innerHTML;
-   
   }
 }
 
-///////// Ввод ответа 
+///////// Ввод ответа
 
 function introduseSolution() {
   if (calcScreen.innerHTML === "") {
@@ -318,17 +291,14 @@ function introduseSolution() {
     createRandomDrope();
     /// если неправильный ответ
   } else {
-    const result =
-      parseInt(gameScore.innerHTML) - parseInt(dropValue);
+    const result = parseInt(gameScore.innerHTML) - parseInt(dropValue);
     gameScore.innerHTML = result;
     wrongAnswerSound.play();
     dropDelete();
     upTide();
     if (gameFinish === false) {
       createRandomDrope();
-    } 
-    
+    }
   }
   calcScreen.innerHTML = "";
 }
-
