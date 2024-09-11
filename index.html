@@ -11,12 +11,13 @@
 </head>
 <body>
 <div class="wrapper">
-
+<!-- Игра -->
     <div class="game-field">
         <div class="main">
             <div class="main__screen">
                 <img class="main__screen-cover" src="/src/accets/pic/water.jpg" alt="">
-                <div class="main__screen-flood"></div>
+                <div class="main__screen-flood">
+                </div>
             </div>
             <div class="main__game">
                 <div class="main__game-score">
@@ -44,12 +45,17 @@
                 
             </div>
         </div>
-        <div class="footer"></div>   
+        <div class="footer">
+            <div class="full-screen"></div>
+            <div class="no-full-screen"></div>
+              
+            
+        </div>   
     </div>
 
 </div>
-
-<div class="variables">
+<!-- Хранилище чисел и знаков -->
+<div class="variables hide">
     <span id="num-1"></span>
     <span id="sign"></span>
     <span id="num-2"></span>
@@ -57,7 +63,7 @@
 
 
 
-
+<!-- Модальные окна -->
  <div class="modal">
     <div class="modal__content">
         <p class="hello">Добро пожаловать в Calc_Game</p>
@@ -68,15 +74,18 @@
     </div>
 </div> 
 
-<div class="modal-finish hide">
+<div class="modal-finish">
     <div class="modal-finish__content">
-        <p class="score">Ваш результат: <span id="score-result"></span></p>
+        <p class="score">Ваш результат: <span id="score-final"></span></p>
         <div class="modal-finish__buttons">
             <button class="modal__btn" id="restart">Играть заново</button>
             <button class="modal__btn" id="finish">Выйти</button>
         </div>
     </div>
 </div>
+
+<audio class="right" src="./src/sounds/yes.mp3"></audio>
+<audio class="wrong" src="./src/sounds/not.mp3"></audio>
 
     <script src="./src/index.js"></script>
 </body>
